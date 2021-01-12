@@ -175,7 +175,7 @@ class DoctrineResource extends AbstractResourceListener implements
      *
      * @param ObjectManager|EntityManagerInterface $objectManager
      */
-    public function setObjectManager(ObjectManager $objectManager)
+    public function setObjectManager(\Doctrine\Persistence\ObjectManager $objectManager): void
     {
         $this->objectManager = $objectManager;
     }
@@ -185,7 +185,7 @@ class DoctrineResource extends AbstractResourceListener implements
      *
      * @return ObjectManager|EntityManagerInterface
      */
-    public function getObjectManager()
+    public function getObjectManager(): \Doctrine\Persistence\ObjectManager
     {
         return $this->objectManager;
     }
@@ -311,17 +311,15 @@ class DoctrineResource extends AbstractResourceListener implements
      * @param HydratorInterface $hydrator
      * @return $this
      */
-    public function setHydrator(HydratorInterface $hydrator)
+    public function setHydrator(HydratorInterface $hydrator): void
     {
         $this->hydrator = $hydrator;
-
-        return $this;
     }
 
     /**
      * @return HydratorInterface
      */
-    public function getHydrator()
+    public function getHydrator() : ?HydratorInterface
     {
         if (! $this->hydrator) {
             // FIXME: find a way to test this line from a created API.  Shouldn't all created API's have a hydrator?
