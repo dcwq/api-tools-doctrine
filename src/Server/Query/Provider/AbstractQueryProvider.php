@@ -24,9 +24,9 @@ abstract class AbstractQueryProvider implements ObjectManagerAwareInterface, Que
     /**
      * Set the object manager
      *
-     * @param ObjectManager $objectManager
+     * @param ObjectManager|EntityManagerInterface $objectManager
      */
-    public function setObjectManager(ObjectManager $objectManager)
+    public function setObjectManager(\Doctrine\Persistence\ObjectManager $objectManager): void
     {
         $this->objectManager = $objectManager;
     }
@@ -34,9 +34,9 @@ abstract class AbstractQueryProvider implements ObjectManagerAwareInterface, Que
     /**
      * Get the object manager
      *
-     * @return ObjectManager
+     * @return ObjectManager|EntityManagerInterface
      */
-    public function getObjectManager()
+    public function getObjectManager(): \Doctrine\Persistence\ObjectManager
     {
         return $this->objectManager;
     }
