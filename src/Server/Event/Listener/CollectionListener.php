@@ -424,22 +424,23 @@ class CollectionListener implements ListenerAggregateInterface
     }
 
     /**
-     * @return ObjectManager
+     * Set the object manager
+     *
+     * @param ObjectManager|EntityManagerInterface $objectManager
      */
-    public function getObjectManager()
+    public function setObjectManager(\Doctrine\Persistence\ObjectManager $objectManager): void
     {
-        return $this->objectManager;
+        $this->objectManager = $objectManager;
     }
 
     /**
-     * @param ObjectManager $objectManager
-     * @return $this
+     * Get the object manager
+     *
+     * @return ObjectManager|EntityManagerInterface
      */
-    public function setObjectManager(ObjectManager $objectManager)
+    public function getObjectManager(): \Doctrine\Persistence\ObjectManager
     {
-        $this->objectManager = $objectManager;
-
-        return $this;
+        return $this->objectManager;
     }
 
     /**
